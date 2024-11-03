@@ -1,0 +1,19 @@
+name: CSpell
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  cspell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for spelling errors
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          files: |
+            **/*.m
+            **/*.md
